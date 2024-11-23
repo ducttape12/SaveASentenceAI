@@ -2,10 +2,10 @@ import time
 
 from ollama import chat
 from ollama import ChatResponse
-import os
 
 def generate_sentence(topic):
     prompt = f"Generate a single sentence about {topic}."
+    print()
     print("Please wait while the sentence is written...")
 
     response: ChatResponse = chat(model='llama3.2', messages=[
@@ -15,6 +15,7 @@ def generate_sentence(topic):
         },
     ])
 
+    print()
     print("Sentence writing completed!")
 
     return response.message.content
@@ -31,6 +32,7 @@ def load_sentence(sentence):
     print("Please wait... loading...")
     time.sleep(1)
 
+    print()
     print("Your sentence:")
     print(sentence)
 
@@ -45,6 +47,7 @@ def main_menu():
         print("3. Quit")
         print()
         selection = input("Choose an option: ")
+        print()
 
         if selection == "1":
             sentence = save_sentence()
@@ -57,7 +60,6 @@ def main_menu():
             if really_quit == "y" or really_quit == "Y":
                 break
 
-        print()
         print()
         print()
 
