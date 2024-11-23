@@ -18,7 +18,7 @@ def generate_sentence(topic):
     print()
     print("Sentence writing completed!")
 
-    return response.message.content
+    return response['message']['content']
 
 
 def save_sentence():
